@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kathy</title>
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --card: #ffffff;
+      --text: #1f2328;
+      --muted: #6b6f76;
+      --accent: #2f6f5e;
+      --line: #e4e0d8;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #161816;
+        --card: #1f2220;
+        --text: #ecebe6;
+        --muted: #a3a69f;
+        --accent: #7cc2a9;
+        --line: #2e322f;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      min-height: 100vh;
+    }
+    main {
+      width: 100%;
+      max-width: 34rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+    .date {
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: clamp(2.5rem, 12vw, 3.75rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+    .role {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    hr {
+      border: none;
+      height: 1px;
+      background: var(--line);
+      margin: 1.75rem 0;
+    }
+    .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .problem {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    @media (min-width: 600px) {
+      main { padding: 3rem; }
+      .problem { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="date" id="today"></p>
+    <h1>Kathy</h1>
+    <p class="role">Certificate student, National College of Ireland</p>
+    <hr>
+    <p class="label">The business problem I care about</p>
+    <p class="problem">How to remember the truth of our humanness in a world of automation.</p>
+  </main>
+
+  <script>
+    document.getElementById("today").textContent =
+      new Date().toLocaleDateString("en-IE", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
+  </script>
+</body>
+</html>
